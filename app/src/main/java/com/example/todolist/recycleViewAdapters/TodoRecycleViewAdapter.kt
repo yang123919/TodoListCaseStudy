@@ -1,0 +1,41 @@
+package com.example.todolist.recycleViewAdapters
+
+import com.example.todolist.model.TodoDetails
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.todolist.MainActivity
+import com.example.todolist.R
+import com.example.todolist.fragments.WordDetailsFragment
+
+class TodoRecycleViewAdapter(private val todoDetails: List<TodoDetails>) :
+    RecyclerView.Adapter<TodoRecycleViewAdapter.TodoViewHolder>() {
+
+    inner class TodoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val titleTextView: TextView = itemView.findViewById(R.id.textViewTitle)
+        val detailTextView: TextView = itemView.findViewById(R.id.textViewDetail)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.todo_item, parent, false)
+        return TodoViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
+        val todoDetail = todoDetails[position]
+        holder.titleTextView.text = todoDetail.title
+        holder.detailTextView.text = todoDetail.details
+
+        // ✅ Fixed: holder.itemView and todoDetail
+        holder.itemView.setOnClickListener {
+            (holder.itemView.context as MainActivity).openDetails(todoDetail)
+        }
+    }
+
+    override fun getItemCount(): Int = todoDetails.size
+
+
+}

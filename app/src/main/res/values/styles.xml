@@ -1,0 +1,18 @@
+<resources>
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme colors here -->
+        <item name="colorPrimary">#6200EE</item>
+        <item name="colorPrimaryVariant">#3700B3</item>
+        <item name="colorSecondary">#03DAC5</item>
+    </style>
+
+    <!-- Button style with no border -->
+    <style name="AppTheme.Button.NoBorder" parent="Widget.MaterialComponents.Button">
+        <!-- Remove border -->
+        <item name="strokeWidth">0dp</item>
+        <!-- Button text color -->
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+</resources>

@@ -26,7 +26,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:src="@drawable/file"
-            android:tint="#8D7F83" />
+            app:tint="#8D7F83" />
 
         <TextView
             android:id="@+id/textEmpty"

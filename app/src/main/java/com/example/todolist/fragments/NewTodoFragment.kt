@@ -35,10 +35,7 @@ class NewTodoFragment : Fragment(R.layout.new_todo_fragment) {
 
         val btnAdd = view.findViewById<Button>(R.id.button)
         btnAdd.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.contentLayout, AddWordFragment())
-                .addToBackStack(null)
-                .commit()
+            (activity as MainActivity).openEditOrAdd()
         }
 
         view.findViewById<EditText>(R.id.editTextText2).addTextChangedListener { text ->
@@ -57,9 +54,12 @@ class NewTodoFragment : Fragment(R.layout.new_todo_fragment) {
 
     override fun onResume() {
         super.onResume()
+
+        val btnAdd = view?.findViewById<Button>(R.id.button)
+        btnAdd?.visibility = View.VISIBLE
+
         loadData()
     }
-
     private fun loadData() {
         val repo = (activity as MainActivity).repo
         Thread {
@@ -90,4 +90,6 @@ class NewTodoFragment : Fragment(R.layout.new_todo_fragment) {
             recyclerView.adapter = TodoRecycleViewAdapter(list)
         }
     }
+
+
 }

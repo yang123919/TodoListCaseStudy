@@ -99,6 +99,7 @@ class MainActivity : AppCompatActivity() {
         container.visibility = View.GONE
         supportFragmentManager.popBackStack()
         setupViewPager(currentTab)  // ✅ Return to same tab
+
     }
 
     fun closeDetails() {
@@ -117,6 +118,15 @@ class MainActivity : AppCompatActivity() {
         }.start()
     }
 
+    fun openEditOrAdd() {
+        val container = findViewById<FrameLayout>(R.id.detailsContainer)
+        container.visibility = View.VISIBLE
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.detailsContainer, AddWordFragment())
+            .addToBackStack(null)
+            .commit()
+    }
 
     fun deleteTodo(todo: TodoDetails) {
         Thread {

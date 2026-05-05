@@ -29,9 +29,8 @@ class TodoRecycleViewAdapter(private val todoDetails: List<TodoDetails>) :
         holder.titleTextView.text = todoDetail.title
         holder.detailTextView.text = todoDetail.details
 
-        // ✅ Fixed: holder.itemView and todoDetail
         holder.itemView.setOnClickListener {
-            (holder.itemView.context as MainActivity).openDetails(todoDetail)
+            (holder.itemView.context as MainActivity).openDetails(todoDetail)   
         }
     }
 

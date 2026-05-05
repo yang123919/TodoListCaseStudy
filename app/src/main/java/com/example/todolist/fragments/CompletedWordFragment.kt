@@ -33,13 +33,6 @@ class CompletedWordFragment : Fragment(R.layout.completed_word_fragment) {
         recyclerView = view.findViewById(R.id.recyclerView)
         emptyStateLayout = view.findViewById(R.id.emptyStateLayout)
 
-        view.findViewById<Button>(R.id.button).setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.contentLayout, AddWordFragment())
-                .addToBackStack(null)
-                .commit()
-        }
-
         view.findViewById<EditText>(R.id.editTextText2).addTextChangedListener { text ->
             searchQuery = text.toString().trim()
             applyFilterAndSort()

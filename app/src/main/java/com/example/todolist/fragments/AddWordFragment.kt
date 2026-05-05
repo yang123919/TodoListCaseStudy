@@ -32,11 +32,14 @@ class AddWordFragment : Fragment(R.layout.add_new_word) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val etTitle    = view.findViewById<EditText>(R.id.etTitle)
-        val etDetails  = view.findViewById<EditText>(R.id.etDetails)
-        val etMeaning  = view.findViewById<EditText>(R.id.etMeaning)
-        val etSynonyms = view.findViewById<EditText>(R.id.etSynonyms)
-        val btnAdd     = view.findViewById<Button>(R.id.btnAdd)
+        view.isClickable = true
+        view.isFocusable = true
+
+            val etTitle    = view.findViewById<EditText>(R.id.etTitle)
+            val etDetails  = view.findViewById<EditText>(R.id.etDetails)
+            val etMeaning  = view.findViewById<EditText>(R.id.etMeaning)
+            val etSynonyms = view.findViewById<EditText>(R.id.etSynonyms)
+            val btnAdd     = view.findViewById<Button>(R.id.btnAdd)
 
         // Check if editing an existing todo
         val existingTodo = arguments?.getSerializable(ARG_TODO) as? TodoDetails
